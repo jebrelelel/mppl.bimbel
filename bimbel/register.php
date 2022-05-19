@@ -15,13 +15,31 @@
         </div>
         <?php
             require('db.php');
-            $query = mysqli_query($con,"");
-
             if(isset($_POST['submit'])) {
-                $namaLengkap = mysqli_real_escape_string($con,$_POST('nama'));
+                $nama = mysqli_real_escape_string($con,$_POST['nama']);
+                $noHP = mysqli_real_escape_string($con,$_POST['noHP']);
+                $email = mysqli_real_escape_string($con,$_POST['email']);
+                $alamat = mysqli_real_escape_string($con,$_POST['alamat']);
+                $idProgram = mysqli_real_escape_string($con,$_POST['drop-prog']);
+                $waktuPendaftaran = date("Y-m-d H:i:s");
+                $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran)
+                VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran')";
+                $masuk = mysqli_query($con,$query);
+                $db = "SELECT idMurid FROM murid WHERE email=$email";
+                if ($masuk) {
+                    echo "<div class='form'>
+                    <h3>Pendaftaran berhasil.</h3><br/>
+                    <p class='link'>Klik di sini untuk melanjutkan pembayaran <a href='pembayaran.php?email=$email' class='button-byr'>bayar</a></p>
+                    </div>";
+                } else {
+                    echo "<div class='form'>
+                    <h3>Yahh, masih ada kolom yang kosong.</h3><br/>
+                    <p class='link'>Klik <a href='register.php'>register</a> untuk registrasi kembali :).</p>
+                    </div>";
+                }
             }
         ?>
-        <div class="body-home">
+        <div class="body-reg">
             <form class="register" action="" method="post">
                 <h2 class="body-title">Pendaftaran Bimbel Nusantara TP 2024/2025</h2>
                 <p class="register-title">Nama Lengkap</p>
