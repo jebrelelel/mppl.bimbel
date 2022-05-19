@@ -11,6 +11,10 @@
     $nama = mysqli_query($con,"select nama from murid where email = '$email'");
     $nama = mysqli_fetch_assoc($nama);
     $nama = $nama['nama'];
+    $idMurid = mysqli_query($con,"select idMurid from murid where email='$email'");
+    $idMurid = mysqli_fetch_assoc($idMurid);
+    $idMurid = $idMurid['idMurid'];
+    $idPembayaran = 256000 + $idMurid;
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +37,7 @@
             <div class="byr">
                 <p class="isi-bayar">Nama Pendaftar: <?php echo $nama;?></p>
                 <p class="isi-bayar">Biaya: <?php echo "Rp ".$biaya;?></p>
-                <p class="isi-bayar">Kode Pembayaran: <?php echo "turu"?></p>
+                <p class="isi-bayar">Kode Pembayaran: <?php echo $idPembayaran?></p>
             </div>
         </div>
     </body>

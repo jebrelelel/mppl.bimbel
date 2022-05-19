@@ -22,10 +22,16 @@
                 $alamat = mysqli_real_escape_string($con,$_POST['alamat']);
                 $idProgram = mysqli_real_escape_string($con,$_POST['drop-prog']);
                 $waktuPendaftaran = date("Y-m-d H:i:s");
-                $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran)
-                VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran')";
+                $password = rand(10000000,99999999);
+                $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran, password)
+                VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran', '$password')";
                 $masuk = mysqli_query($con,$query);
-                $db = "SELECT idMurid FROM murid WHERE email=$email";
+                $idMurid = mysqli_query($con,"select idMurid from murid where email='$email'");
+                $idMurid = mysqli_fetch_assoc($idMurid);
+                $idMurid = $idMurid['idMurid'];
+                $idPembayaran = 256000 + $idMurid;
+                // mysqli_query($con,"UPDATE `pembayaran` SET `idPembayaran` = '$idPembayaran' WHERE `murid`.`idMurid` = '$idMurid'");
+                mysqli_query($con,"insert into pembayaran (idPembayaran, idMurid) values ('$idPembayaran', '$idMurid')");
                 if ($masuk) {
                     echo "<div class='form'>
                     <h3>Pendaftaran berhasil.</h3><br/>
