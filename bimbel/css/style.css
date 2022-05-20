@@ -41,43 +41,6 @@ section{
     padding-top:6rem;
 }
 
-.btn{
-    padding:.7rem 2.4rem;
-    font-size: 1.5rem;
-    color:#fff;
-    background:var(--gradient);
-    border-radius: 5rem;
-    margin-top: 1.1rem;
-    cursor: pointer;
-    box-shadow: .5rem .3rem rgba(0,0,0,.3);
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.btn::before{
-    content: '';
-    position: absolute;
-    top:-1rem; left:-100%;
-    background:#fff9;
-    height:150%;
-    width:20%;
-    transform: rotate(25deg);
-    z-index: -1;
-}
-
-.btn:hover::before{
-    transition: .3s linear;
-    left: 120%;
-}
-
-.heading{
-    color:#444;
-    padding:1rem;
-    font-size: 4rem;
-    text-align: center;
-}
-
 header{
     width: 100%;
     display: flex;
@@ -151,6 +114,36 @@ header #menu{
     width:50rem;
 }
 
+.btn{
+    padding:.7rem 2.4rem;
+    font-size: 1.5rem;
+    color:#fff;
+    background:var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1.1rem;
+    cursor: pointer;
+    box-shadow: .5rem .3rem rgba(0,0,0,.3);
+    position: absolute;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top:-1rem; left:-100%;
+    background:#fff9;
+    height:150%;
+    width:20%;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+
+.btn:hover::before{
+    transition: .3s linear;
+    left: 120%;
+}
+
 .program .box-container{
     display: flex;
     align-items: flex-start;
@@ -164,6 +157,13 @@ header #menu{
     position: relative;
     margin:1.5rem;
     background-color: #e6e6e6;  
+}
+
+.heading{
+    color:#444;
+    padding:1rem;
+    font-size: 4rem;
+    text-align: center;
 }
 
 .program .box-container .box img{
@@ -238,4 +238,99 @@ header #menu{
 
 .footer .box-container .box a:hover{
     text-decoration: underline;
+}
+
+.body-reg{
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    text-align: left;
+}
+
+.body-reg .register h2{
+    font-size: 5rem;
+    color:#666;
+    width: 130rem;
+    padding:2rem;
+    text-align: center;
+}
+
+.body-reg .register p{
+    font-size: 2rem;
+    color:#999;
+    padding:0rem;
+    width:50rem;
+}
+
+.body-reg .register .register-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.body-reg .register .register-title {
+    width:55rem;
+    position: relative;
+    margin:1rem;  
+}
+
+.body-reg .register .register-input {
+    border-radius: 10px;
+    margin:1.5rem;
+    width:63rem;
+    padding:0.5rem;
+    border: .5rem double rgba(0, 0, 0, 0.623);
+    color:#666;
+    font-size: 1.5rem;
+    background-color: #e6e6e6;
+}
+
+select {
+    border-radius: 10px;
+    margin:1.5rem;
+    width:50rem;
+    padding:0.5rem;
+    border: .5rem double rgba(0, 0, 0, 0.623);
+    color:#666;
+    font-size: 1.5rem;
+    background-color: #e6e6e6;
+}
+
+.button-reg {
+    padding:.7rem 2.4rem;
+    font-size: 1.5rem;
+    color:#fff;
+    background:var(--gradient);
+    border-radius: 5rem;
+    margin-top: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.button-reg::before{
+    content: '';
+    position: absolute;
+    top:-1rem; left:-100%;
+    background:#fff9;
+    height:150%;
+    width:20%;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+
+.button-reg:hover::before{
+    transition: .3s linear;
+    left: 120%;
+}
+
+.form h3{
+    color:#444;
+    padding:1rem;
+    font-size: 4rem;
+    text-align: center;
 }
