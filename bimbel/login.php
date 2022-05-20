@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<!DOCTYPE html>
+<html>
+<head>
         <meta charset="utf-8"/>
-        <title>Login</title>
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <div class="header">
-            <h1 class="org-name">BIMBEL NUSANTARA</h1>
-            <a href="index.php" class="button">HOME</a>
-            <a href="program.php" class="button">PROGRAM</a>
-            <a href="login.php" class="button">LOGIN</a>
-            <a href="register.php" class="button-spc">REGISTER</a>
-        </div>
+        <title>login</title>
+        
+        <!-- main font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+        <!-- font emoji -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+        <link rel="stylesheet" href="css/style.css"/>
+</head>
+</head>
+<body>
+
+<!-- header -->
+
+<header>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <a href="index.php" class="logo"></i>BIMBEL NUSANTARA</a>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.php">HOME</a></li>
+            <li><a href="index.php #program">PROGRAM</a></li>
+            <li><a class="active" href="#">LOGIN</a></li>
+            <li><a href="register.php">REGISTER</a></li>
+        </ul>
+    </nav>
+
+
+</header>
         <?php
             require('db.php');
             session_start();
@@ -89,13 +114,40 @@
             //     }
             // }
         ?>
-        <div class="body-reg">
-            <form class="login" action="" method="post">
-                <input type="text" class="register-input" name="id" placeholder="ID" autofocus="true" required/>
-                <input type="password" class="register-input" name="password" placeholder="Password" required/>
-                <input type="submit" class="button-reg" name="submit-murid" value="Login Murid"/>
-                <input type="submit" class="button-reg" name="submit-admin" value="Login Admin"/>
+        <section class="login">
+            <div class="login-container">
+            <div class="login-box">
+            <form class="login-form" action="" method="post">
+                <input type="text" class="login-input" name="id" placeholder=" ID" autofocus="true" required/>
+                <input type="password" class="login-input" name="password" placeholder=" Password" required/>
+                <input type="submit" class="button-login" name="submit-murid" value="Login Murid"/>
+                <input type="submit" class="button-login" name="submit-admin" value="Login Admin"/>
             </form>
+        </section>
+
+<!-- footer -->
+
+        <div class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#program">Program</a>
+                <a href="login.php">Login</a>
+                <a href="register.php">Register</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <p> <i class="fa fa-map-marker-alt"></i> Gondokusuman, Yogyakarta 14211 </p>
+                <p> <i class="fa fa-envelope"></i> nusantara@bimbel.com </p>
+                <p> <i class="fa fa-phone"></i> +123-456-7890 </p>
+            </div>
         </div>
-    </body>
+        </div>
+
+<!-- footer ends -->
+</body>
 </html>

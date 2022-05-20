@@ -14,7 +14,6 @@
 
         <link rel="stylesheet" href="css/style.css"/>
 </head>
-</head>
 <body>
 
 <!-- header -->
@@ -45,8 +44,6 @@
     <h1>Mulai Belajar Bersama Kami di Bimbel Nusantara!</h1>
     <p>Bimbel Nusantara merupakan lembaga bimbingan belajar SMA terbaik dan terpercaya di Jogja.</p>
     <a href="register.php"><button class="btn">Register</button></a>
-
-    <div class="shape"></div>
 
 </section>
 
@@ -121,10 +118,10 @@
 
         <div class="box">
             <h3>Quick Links</h3>
-            <a href="#home">Home</a>
-            <a href="#program">Program</a>
-            <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
+            <a href="#home">HOME</a>
+            <a href="#program">PROGRAM</a>
+            <a href="login.php">LOGIN</a>
+            <a href="register.php">REGISTER</a>
         </div>
 
         <div class="box">

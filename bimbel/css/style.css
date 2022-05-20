@@ -144,6 +144,13 @@ header #menu{
     left: 120%;
 }
 
+.heading{
+    color:#444;
+    padding:1rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
 .program .box-container{
     display: flex;
     align-items: flex-start;
@@ -157,13 +164,6 @@ header #menu{
     position: relative;
     margin:1.5rem;
     background-color: #e6e6e6;  
-}
-
-.heading{
-    color:#444;
-    padding:1rem;
-    font-size: 4rem;
-    text-align: center;
 }
 
 .program .box-container .box img{
@@ -333,4 +333,82 @@ select {
     padding:1rem;
     font-size: 4rem;
     text-align: center;
+}
+
+.body-bayar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    text-align: center;
+}
+
+.body-bayar .bayar-title {
+    font-size: 4.5rem;
+    color:#666;
+    width: 90rem;
+}
+
+.body-bayar .bayar p{
+    font-size: 1.8rem;
+    color:rgb(112, 112, 112);
+    padding:1.5rem 0;
+    width:50rem;
+    border-radius: 10px;
+    margin:1.5rem;
+    width:50rem;
+    padding:0.5rem;
+    border: .5rem double rgba(0, 0, 0, 0.623);
+}
+
+.login{
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-flow: column;
+    background:url(../images/baca_buku.png) no-repeat;
+    background-size: 900px 700px;
+    background-position: top right;
+    background-attachment: scroll;
+    position: relative;
+    text-align: left;
+}
+
+.login-box{
+    width:50rem;
+    height: 50rem;
+    border: .5rem double rgba(0, 0, 0, 0.856);
+    position: relative;
+    margin:1.5rem;
+    background-color: #a1a1a1;  
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.login-input {
+    border-radius: 12px;
+    margin:1.5rem;
+    margin-top: 5.5rem;
+    width:46rem;
+    padding:0.5rem;
+    border: .5rem solid rgba(0, 0, 0, 0.623);
+    color:#666;
+    font-size: 2rem;
+    background-color: #ffffff;
+}
+
+.login .login-container .login-box .button-login {
+    display: grid;
+    padding:1.4rem 3.4rem;
+    font-size: 1.4rem;
+    color:#fff;
+    background:var(--gradient);
+    border: .3rem outset rgba(63, 63, 63, 0.329);
+    border-radius: 12px;
+    margin-top: 5.1rem;
+    cursor: pointer;
+    position: relative;
+    left: 28%;
+    width: 45%;
 }

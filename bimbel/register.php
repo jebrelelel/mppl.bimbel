@@ -22,7 +22,7 @@
 
     <div id="menu" class="fas fa-bars"></div>
 
-    <a href="#" class="logo"></i>BIMBEL NUSANTARA</a>
+    <a href="index.php" class="logo"></i>BIMBEL NUSANTARA</a>
 
     <nav class="navbar">
         <ul>
@@ -69,15 +69,15 @@
         <section class="body-reg">
             <form class="register" action="" method="post">
                 <h2 class="body-title">Pendaftaran Bimbel Nusantara TP 2024/2025</h2>
-                <p class="register-title">Nama Lengkap</p>
+                <p class="register-title"><strong>Nama Lengkap</strong></p>
                 <input type="text" class="register-input" name="nama" required/>
-                <p class="register-title">Nomor Handphone</p>
+                <p class="register-title"><strong>Nomor Handphone</strong></p>
                 <input type="text" class="register-input" name="noHP" required/>
-                <p class="register-title">Email</p>
+                <p class="register-title"><strong>Email</strong></p>
                 <input type="text" class="register-input" name="email" required/>
-                <p class="register-title">Alamat</p>
+                <p class="register-title"><strong>Alamat</strong></p>
                 <input type="text" class="register-input" name="alamat" required/>
-                <p class="register-title">Program</p>
+                <p class="register-title"><strong>Program</strong></p>
                 <select name="drop-prog" required>
                     <option value="">--Silahkan pilih program--</option>
                     <?php
@@ -120,5 +120,5 @@
 
 <!-- footer ends -->
 
-    </body>
+</body>
 </html>
