@@ -7,7 +7,7 @@
 <html>
 <head>
         <meta charset="utf-8"/>
-        <title>Laman Murid</title>
+        <title>Laman Admin</title>
         
         <!-- main font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,6 +33,7 @@
     <nav class="navbar">
         <ul>
             <li><a class="active" href="#home">HOME</a></li>
+            <li><a href="data_murid.php">DATA MURID</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
@@ -45,7 +46,7 @@
 
 <section class="home" id="home">
     
-    <h1>Halo <?php echo $_SESSION['nama']."!" ?></h1>
+    <h1>Halo Admin <?php echo $_SESSION['namaAdmin']."!" ?></h1>
 
     <div class="shape"></div>
 

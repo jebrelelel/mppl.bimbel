@@ -23,13 +23,34 @@
                 $nama = mysqli_query($con,"select nama from murid where idMurid = '$idMurid'");
                 $nama = mysqli_fetch_assoc($nama);
                 $_SESSION['nama'] = $nama['nama'];
-                $query    = "SELECT * FROM `murid` WHERE idMurid='$idMurid'
+                $query = "SELECT * FROM `murid` WHERE idMurid='$idMurid'
                 AND password='$password'";
                 $result = mysqli_query($con,$query);
                 $rows = mysqli_num_rows($result);
                 if($rows == 1) {
-                    $_SESSION['idMurid'] = $idMurid;
+                    $_SESSION['id'] = $idMurid;
                     header("location: dashboard.php");
+                } else {
+                    echo "<div class='form'>
+                    <h3>ID/Password salah.</h3><br/>
+                    <p class='link'>Klik di sini untuk <a href='login.php'>Login</a> kembali.</p>
+                    </div>";
+                }
+            }
+
+            if(isset($_POST['submit-admin'])) {
+                $idAdmin = mysqli_real_escape_string($con, $_REQUEST['id']);
+                $password = mysqli_real_escape_string($con, $_REQUEST['password']);
+                $namaAdmin = mysqli_query($con,"select namaAdmin from admin where idAdmin = '$idAdmin'");
+                $namaAdmin = mysqli_fetch_assoc($namaAdmin);
+                $_SESSION['namaAdmin'] = $namaAdmin['namaAdmin'];
+                $query = "SELECT * FROM `admin` WHERE idAdmin='$idAdmin'
+                AND password='$password'";
+                $result = mysqli_query($con,$query);
+                $rows = mysqli_num_rows($result);
+                if($rows == 1) {
+                    $_SESSION['id'] = $idAdmin;
+                    header("location: dashboard_admin.php");
                 } else {
                     echo "<div class='form'>
                     <h3>ID/Password salah.</h3><br/>
@@ -70,8 +91,7 @@
         ?>
         <div class="body-reg">
             <form class="login" action="" method="post">
-                <input type="text" class="register-input" name="id" placeholder="ID" autofocus="true"
-                3 required/>
+                <input type="text" class="register-input" name="id" placeholder="ID" autofocus="true" required/>
                 <input type="password" class="register-input" name="password" placeholder="Password" required/>
                 <input type="submit" class="button-reg" name="submit-murid" value="Login Murid"/>
                 <input type="submit" class="button-reg" name="submit-admin" value="Login Admin"/>
