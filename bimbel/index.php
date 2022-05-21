@@ -58,7 +58,7 @@
 <div class="box-container">
 
     <div class="box">
-        <img src="images/course1.jpg" alt="">
+        <img src="images/course1.png" alt="">
         <div class="desc">
             <div class="stars">
             <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>            </div>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="box">
-        <img src="images/course2.jpg" alt="">
+        <img src="images/course2.png" alt="">
         <div class="desc">
             <div class="stars">
             <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>            </div>
@@ -88,7 +88,7 @@
     </div>
 
     <div class="box">
-        <img src="images/course3.jpg" alt="">
+        <img src="images/course3.png" alt="">
         <div class="desc">
             <div class="stars">
                 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
