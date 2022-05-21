@@ -5,7 +5,7 @@ create database sistem_bimbel;
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2022 at 09:30 AM
+-- Generation Time: May 21, 2022 at 03:01 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -35,6 +35,13 @@ CREATE TABLE `admin` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`idAdmin`, `namaAdmin`, `password`) VALUES
+(1, 'Tono', 'makanbang');
+
 -- --------------------------------------------------------
 
 --
@@ -49,37 +56,14 @@ CREATE TABLE `murid` (
   `alamat` varchar(50) NOT NULL,
   `waktuPendaftaran` datetime NOT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `idProgram` int(10) UNSIGNED DEFAULT NULL
+  `idProgram` int(10) UNSIGNED DEFAULT NULL,
+  `idPembayaran` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `murid`
 --
 
-INSERT INTO `murid` (`idMurid`, `nama`, `noHP`, `email`, `alamat`, `waktuPendaftaran`, `password`, `idProgram`) VALUES
-(1, 'Muhammad Jibril', '085942104821', 'jebrel0912@gmail.com', 'hoeless', '2022-05-19 16:11:41', '48645045', 3),
-(2, 'Abimanyu Wahyu Palagan', '081228923690', 'abimanyupalagan@gmail.com', 'sapen', '2022-05-20 04:27:42', '50658373', 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pembayaran`
---
-
-CREATE TABLE `pembayaran` (
-  `idPembayaran` int(10) UNSIGNED NOT NULL,
-  `status` varchar(20) NOT NULL DEFAULT 'Belum Dibayar',
-  `waktuPembayaran` datetime NOT NULL,
-  `idMurid` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pembayaran`
---
-
-INSERT INTO `pembayaran` (`idPembayaran`, `status`, `waktuPembayaran`, `idMurid`) VALUES
-(256001, 'Belum Dibayar', '0000-00-00 00:00:00', 1),
-(256002, 'Belum Dibayar', '0000-00-00 00:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -117,14 +101,8 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `murid`
   ADD PRIMARY KEY (`idMurid`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD KEY `idProgram_murid` (`idProgram`);
-
---
--- Indexes for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  ADD PRIMARY KEY (`idPembayaran`),
-  ADD KEY `FK_pembayaran_murid` (`idMurid`);
 
 --
 -- Indexes for table `program`
@@ -140,13 +118,13 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idAdmin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idAdmin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `idMurid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idMurid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `program`
@@ -163,12 +141,6 @@ ALTER TABLE `program`
 --
 ALTER TABLE `murid`
   ADD CONSTRAINT `FK_murid_program` FOREIGN KEY (`idProgram`) REFERENCES `program` (`idProgram`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `FK_pembayaran_murid` FOREIGN KEY (`idMurid`) REFERENCES `murid` (`idMurid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
