@@ -32,7 +32,7 @@
 
     <nav class="navbar">
         <ul>
-            <li><a class="active" href="#DASHBOARD">DASHBOARD</a></li>
+            <li><a class="active" href="#">HOME</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
@@ -68,7 +68,7 @@
 
         <div class="box">
             <h3>Quick Links</h3>
-            <a href="#DASHBOARD">Dashboard</a>
+            <a href="#">Home</a>
             <a href="logout.php">Logout</a>
         </div>
 

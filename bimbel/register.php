@@ -48,13 +48,12 @@
                 $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran, password)
                 VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran', '$password')";
                 $masuk = mysqli_query($con,$query);
+                $_SESSION['email'] = $email;
                 $idMurid = mysqli_query($con,"select idMurid from murid where email='$email'");
                 $idMurid = mysqli_fetch_assoc($idMurid);
                 $idMurid = $idMurid['idMurid'];
                 $idPembayaran = 256000 + $idMurid;
-                $_SESSION['email'] = $email;
-                // mysqli_query($con,"UPDATE `pembayaran` SET `idPembayaran` = '$idPembayaran' WHERE `murid`.`idMurid` = '$idMurid'");
-                mysqli_query($con,"insert into pembayaran (idPembayaran, idMurid) values ('$idPembayaran', '$idMurid')");
+                mysqli_query($con,"UPDATE `murid` SET `idPembayaran` = '$idPembayaran' WHERE `murid`.`idMurid` = '$idMurid'");
                 if ($masuk) {
                     header("location: pembayaran.php");
                     // echo "<div class='form'>

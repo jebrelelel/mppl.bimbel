@@ -56,10 +56,8 @@
                     $_SESSION['id'] = $idMurid;
                     header("location: dashboard.php");
                 } else {
-                    echo "<div class='form'>
-                    <h3>ID/Password salah.</h3><br/>
-                    <p class='link'>Klik di sini untuk <a href='login.php'>Login</a> kembali.</p>
-                    </div>";
+                    $message = "ID/Password salah, silahkan Login kembali.";
+                    echo "<script type='text/javascript'>alert('$message');</script>";;
                 }
             }
 
@@ -77,10 +75,8 @@
                     $_SESSION['id'] = $idAdmin;
                     header("location: dashboard_admin.php");
                 } else {
-                    echo "<div class='form'>
-                    <h3>ID/Password salah.</h3><br/>
-                    <p class='link'>Klik di sini untuk <a href='login.php'>Login</a> kembali.</p>
-                    </div>";
+                    $message = "ID/Password salah, silahkan Login kembali.";
+                    echo "<script type='text/javascript'>alert('$message');</script>";;
                 }
             }
 
