@@ -70,6 +70,7 @@
         <div class="box">
             <h3>Quick Links</h3>
             <a href="#home">Home</a>
+            <a href="data_murid.php">Data Murid</a>
             <a href="logout.php">Logout</a>
         </div>
 

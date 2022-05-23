@@ -107,6 +107,7 @@
             <td><?php echo $data['idPembayaran']??''; ?></td>
             <td>
                 <a href="delete.php?del=<?php echo $data['idMurid']; ?>" class="del_btn">Delete</a>
+                <a href="edit.php?edit=<?php echo $data['idMurid']; ?>" class="del_btn">Edit</a>
 			</td>
             </tr>
             <?php

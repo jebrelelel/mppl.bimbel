@@ -1,33 +1,27 @@
 <?php
     require('db.php');
     include("auth_session.php");
-    $db= $con;
-    $tableName="murid";
-    $columns= ['idMurid', 'nama','noHP','email','alamat', 'waktuPendaftaran','password','idProgram', 'idPembayaran'];
-    $fetchData = fetch_data($db, $tableName, $columns);
-    function fetch_data($db, $tableName, $columns){
-    if(empty($db)){
-        $msg= "Database connection error";
-    } elseif (empty($columns) || !is_array($columns)) {
-        $msg="columns Name must be defined in an indexed array";
-    } elseif(empty($tableName)) {
-        $msg= "Table Name is empty";
-    } else {
-        $columnName = implode(", ", $columns);
-        $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY idMurid asc";
-        $result = $db->query($query);
-        if($result== true){ 
-            if ($result->num_rows > 0) {
-                $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
-                $msg= $row;
-            } else {
-                $msg= "No Data Found"; 
-            }
-        } else {
-            $msg= mysqli_error($db);
-        }
+
+    $idMurid = $_GET['edit'];
+    $result = mysqli_query($con,"select * from murid where idMurid = $idMurid");
+    while($dataMurid = mysqli_fetch_array($result)) {
+        $nama = $dataMurid['nama'];
+        $noHP = $dataMurid['noHP'];
+        $email = $dataMurid['email'];
+        $alamat = $dataMurid['alamat'];
+        $idProgram = $dataMurid['idProgram'];
     }
-    return $msg;
+
+    if(isset($_POST['update'])) {
+        $nama = mysqli_real_escape_string($con,$_POST['nama']);
+        $noHP = mysqli_real_escape_string($con,$_POST['noHP']);
+        $email = mysqli_real_escape_string($con,$_POST['email']);
+        $alamat = mysqli_real_escape_string($con,$_POST['alamat']);
+        $idProgram = mysqli_real_escape_string($con,$_POST['drop-prog']);
+        $query = "update murid set nama = '$nama', noHP = '$noHP', email = '$email', alamat = '$alamat', idProgram = '$idProgram' where idMurid = '$idMurid'";
+        $masuk = mysqli_query($con,$query);
+        header("location: data_murid.php");
+
     }
 ?>
 
@@ -59,56 +53,55 @@
 
     <nav class="navbar">
         <ul>
-            <li><a href="index.php">HOME</a></li>
-            <li><a href="index.php #program">PROGRAM</a></li>
-            <li><a href="login.php">LOGIN</a></li>
-            <li><a class="active" href="register.php">REGISTER</a></li>
+            <li><a class="active" href="#home">HOME</a></li>
+            <li><a href="data_murid.php">DATA MURID</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
 
 </header>
         <?php
-            if(isset($_POST['submit'])) {
-                $nama = mysqli_real_escape_string($con,$_POST['nama']);
-                $noHP = mysqli_real_escape_string($con,$_POST['noHP']);
-                $email = mysqli_real_escape_string($con,$_POST['email']);
-                $alamat = mysqli_real_escape_string($con,$_POST['alamat']);
-                $idProgram = mysqli_real_escape_string($con,$_POST['drop-prog']);
-                $waktuPendaftaran = date("Y-m-d H:i:s");
-                $password = rand(10000000,99999999);
-                $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran, password)
-                VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran', '$password')";
-                $masuk = mysqli_query($con,$query);
-                $_SESSION['email'] = $email;
-                $idMurid = mysqli_query($con,"select idMurid from murid where email='$email'");
-                $idMurid = mysqli_fetch_assoc($idMurid);
-                $idMurid = $idMurid['idMurid'];
-                $idPembayaran = 256000 + $idMurid;
-                mysqli_query($con,"UPDATE `murid` SET `idPembayaran` = '$idPembayaran' WHERE `murid`.`idMurid` = '$idMurid'");
-                if ($masuk) {
-                    header("location: pembayaran.php");
-                    // echo "<div class='form'>
-                    // <h3>Pendaftaran berhasil.</h3><br/>
-                    // <p class='link'>Klik di sini untuk melanjutkan pembayaran <a href='pembayaran.php?email=$email' class='button-byr'>bayar</a></p>
-                    // </div>";
-                } else {
-                    header("location: register.php");
-                }
-            }
+            // if(isset($_POST['submit'])) {
+            //     $nama = mysqli_real_escape_string($con,$_POST['nama']);
+            //     $noHP = mysqli_real_escape_string($con,$_POST['noHP']);
+            //     $email = mysqli_real_escape_string($con,$_POST['email']);
+            //     $alamat = mysqli_real_escape_string($con,$_POST['alamat']);
+            //     $idProgram = mysqli_real_escape_string($con,$_POST['drop-prog']);
+            //     $waktuPendaftaran = date("Y-m-d H:i:s");
+            //     $password = rand(10000000,99999999);
+            //     $query = "INSERT into murid (nama, noHP, email, alamat, idProgram, waktuPendaftaran, password)
+            //     VALUES ('$nama', '$noHP', '$email', '$alamat', '$idProgram', '$waktuPendaftaran', '$password')";
+            //     $masuk = mysqli_query($con,$query);
+            //     $_SESSION['email'] = $email;
+            //     $idMurid = mysqli_query($con,"select idMurid from murid where email='$email'");
+            //     $idMurid = mysqli_fetch_assoc($idMurid);
+            //     $idMurid = $idMurid['idMurid'];
+            //     $idPembayaran = 256000 + $idMurid;
+            //     mysqli_query($con,"UPDATE `murid` SET `idPembayaran` = '$idPembayaran' WHERE `murid`.`idMurid` = '$idMurid'");
+            //     if ($masuk) {
+            //         header("location: pembayaran.php");
+            //         // echo "<div class='form'>
+            //         // <h3>Pendaftaran berhasil.</h3><br/>
+            //         // <p class='link'>Klik di sini untuk melanjutkan pembayaran <a href='pembayaran.php?email=$email' class='button-byr'>bayar</a></p>
+            //         // </div>";
+            //     } else {
+            //         header("location: register.php");
+            //     }
+            // }
         ?>
         <section class="body-reg">
             <form class="register" action="" method="post">
-                <h2 class="body-title">Pendaftaran Bimbel Nusantara TP 2024/2025</h2>
+                <h2 class="body-title">Update Data Murid Bimbel Nusantara</h2>
                 <p class="register-title"><strong>Nama Lengkap</strong></p>
-                <input type="text" class="register-input" name="nama" required/>
+                <input type="text" class="register-input" name="nama" value="<?php echo $nama?>" required/>
                 <p class="register-title"><strong>Nomor Handphone</strong></p>
-                <input type="text" class="register-input" name="noHP" required/>
+                <input type="text" class="register-input" name="noHP" value="<?php echo $noHP?>" required/>
                 <p class="register-title"><strong>Email</strong></p>
-                <input type="text" class="register-input" name="email" required/>
+                <input type="text" class="register-input" name="email" value="<?php echo $email?>" required/>
                 <p class="register-title"><strong>Alamat</strong></p>
-                <input type="text" class="register-input" name="alamat" required/>
+                <input type="text" class="register-input" name="alamat" value="<?php echo $alamat?>" required/>
                 <p class="register-title"><strong>Program</strong></p>
-                <select name="drop-prog" required>
+                <select name="drop-prog" value=<?php echo $idProgram?> required>
                     <option value="">--Silahkan pilih program--</option>
                     <?php
                         $list=mysqli_query($con,"select * from program order by idProgram asc");
@@ -121,7 +114,7 @@
                     }
                     ?>
                 </select>
-                <input type="submit" class="button-reg" name="submit" value="Register"/>
+                <input type="submit" class="button-reg" name="update" value="Update"/>
             </form>
         </section>
 
@@ -134,9 +127,8 @@
                 <div class="box">
                     <h3>Quick Links</h3>
                     <a href="#home">Home</a>
-                    <a href="#program">Program</a>
-                    <a href="login.php">Login</a>
-                    <a href="register.php">Register</a>
+                    <a href="data_murid.php">Data Murid</a>
+                    <a href="logout.php">Logout</a>
                 </div>
 
                 <div class="box">
