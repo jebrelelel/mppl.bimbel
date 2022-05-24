@@ -72,7 +72,7 @@
 
 <!-- home  -->
 
-<section class="data-murid" id="home">
+<section class="data-murid">
     
 <div class="table-responsive">
     <table class="table table-bordered">
