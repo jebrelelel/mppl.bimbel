@@ -53,8 +53,8 @@
 
     <nav class="navbar">
         <ul>
-            <li><a class="active" href="#home">HOME</a></li>
-            <li><a href="data_murid.php">DATA MURID</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a class="active" href="data_murid.php">DATA MURID</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>

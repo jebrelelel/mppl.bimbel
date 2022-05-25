@@ -60,8 +60,8 @@
 
     <nav class="navbar">
         <ul>
-            <li><a class="active" href="dashboard_admin.php">HOME</a></li>
-            <li><a href="#">DATA MURID</a></li>
+            <li><a href="dashboard_admin.php">HOME</a></li>
+            <li><a class="active" href="#">DATA MURID</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
@@ -73,9 +73,8 @@
 <!-- home  -->
 
 <section class="data-murid" id="home">
-    
-<div class="table-responsive">
-    <table class="table table-bordered">
+    <h1>Data Murid</h1>
+    <table class="data-bordered">
         <thead><tr>
 
             <th>ID Murid</th>
@@ -122,20 +121,58 @@
             }?>
         </tbody>
     </table>
-</div>
+<style>
+        .data-murid {
+            flex-flow: column;
+            position: relative;
+            text-align: left;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .data-murid h1 {
+            font-size: 3.8rem;
+            color:#666;
+            text-align: center;
+            margin:3rem;
+        }
+
+        .data-bordered {
+            width: 135rem;
+            height: 8rem;
+            border: .5rem double rgba(0, 0, 0, 0.856);
+            position: relative;
+            font-size: 1.4em;
+            min-width: 100px;
+        }
+
+        .data-bordered thead tr {
+            background-color: rgba(37, 37, 37, 0.671);;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .data-bordered th,
+        .data-bordered td {
+            padding: 12px 17px;
+        }
+
+        .data-bordered tbody tr:nth-of-type(even) {
+            background-color: #d1d1d1;
+        }
+
+        .data-bordered tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+</style>
 
     <div class="shape"></div>
 
 </section>
-
-<!-- home  ends -->
-
-<!-- program  -->
-
-
-
-<!-- program ends -->
-
 
 <!-- footer -->
 
