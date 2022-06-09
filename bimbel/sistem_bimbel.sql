@@ -1,11 +1,10 @@
 create database sistem_bimbel;
-
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 03:01 AM
+-- Generation Time: Jun 09, 2022 at 07:28 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -64,6 +63,11 @@ CREATE TABLE `murid` (
 -- Dumping data for table `murid`
 --
 
+INSERT INTO `murid` (`idMurid`, `nama`, `noHP`, `email`, `alamat`, `waktuPendaftaran`, `password`, `idProgram`, `idPembayaran`) VALUES
+(2, 'Muhammad Jibril', '086969696969', 'jebrel0912@gmail.com', 'jl. jaya no. 25', '2022-05-23 15:04:20', '24914706', 1, 256002),
+(4, 'Imam Zelkova', '086969696969', 'zelkova.pohon@gmail.com', 'Pasar Kolombo', '2022-05-24 11:04:16', '45358972', 2, 256004),
+(6, 'Tirta Agung Jati', '089765225546', 'tirtaaj@gmail.com', 'Bantul jauh banget', '2022-05-30 16:32:44', '57821648', 3, 256006),
+(7, 'Abimanyu Wahyu Palagan', '081228923690', 'abimanyupalagan@gmail.com', 'Jl. Jurugsari Gg. Teratai No. 31', '2022-05-30 16:42:58', '79044774', 2, 256007);
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `idMurid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idMurid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `program`
